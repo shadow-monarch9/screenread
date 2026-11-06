@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ContextGrab: select text, export a file</title>
+<meta name="description" content="Select text anywhere, press Alt+Shift+S, and export it as PDF, DOCX, XLSX or CSV. Local-first desktop app.">
+<style>
+  :root { --bg:#fff; --fg:#14161a; --muted:#5b6370; --card:#f4f6fa; --accent:#2b5fd9; --on-accent:#fff; --line:#e1e5ec; }
+  @media (prefers-color-scheme: dark) { :root { --bg:#0f1115; --fg:#eceff4; --muted:#9aa4b2; --card:#181b22; --accent:#6ea0ff; --on-accent:#0f1115; --line:#262b35; } }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--fg); font:16px/1.6 system-ui, "Segoe UI", sans-serif; }
+  main { max-width:880px; margin:0 auto; padding:0 16px 64px; }
+  header { padding:72px 0 40px; text-align:center; }
+  h1 { font-size:clamp(2rem, 6vw, 3.2rem); line-height:1.1; margin:0 0 16px; }
+  .sub { color:var(--muted); font-size:1.15rem; max-width:620px; margin:0 auto 28px; }
+  .btn { display:inline-block; padding:12px 22px; border-radius:8px; background:var(--accent); color:var(--on-accent); font-weight:600; text-decoration:none; margin:4px; }
+  .btn.alt { background:transparent; color:var(--fg); border:1px solid var(--line); }
+  kbd { padding:2px 8px; border:1px solid var(--line); border-bottom-width:2px; border-radius:6px; background:var(--card); font:inherit; font-size:.95em; }
+  h2 { margin:48px 0 16px; font-size:1.5rem; }
+  .grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(240px, 1fr)); gap:12px; }
+  .card { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:16px 18px; }
+  .card h3 { margin:0 0 6px; font-size:1.05rem; }
+  .card p { margin:0; color:var(--muted); }
+  ol { padding-left:1.2em; } li { margin:6px 0; }
+  .note { color:var(--muted); font-size:.92rem; }
+  footer { text-align:center; color:var(--muted); font-size:.92rem; padding:24px 16px; border-top:1px solid var(--line); }
+  a { color:var(--accent); }
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <h1>Select it. <kbd>Alt</kbd> + <kbd>Shift</kbd> + <kbd>S</kbd>. Export it.</h1>
+    <p class="sub">ContextGrab turns whatever you highlight, from a web table, a chat answer or a spreadsheet, into a clean PDF, DOCX, XLSX or CSV. Local-first, no account.</p>
+    <a class="btn" href="https://github.com/shadow-monarch9/screenread/releases/latest">Download for Windows</a>
+    <a class="btn alt" href="https://github.com/shadow-monarch9/screenread">View on GitHub</a>
+    <p class="note">macOS builds are provided but untested. Installers are unsigned, so expect a SmartScreen / Gatekeeper warning on first run.</p>
+  </header>
+
+  <h2>How it works</h2>
+  <ol>
+    <li>Highlight text in any app.</li>
+    <li>Press <kbd>Alt</kbd> + <kbd>Shift</kbd> + <kbd>S</kbd>. A small popup opens at your cursor.</li>
+    <li>Pick PDF, DOCX, XLSX or CSV. The recommended one is highlighted. Files land in Downloads.</li>
+  </ol>
+
+  <h2>Features</h2>
+  <div class="grid">
+    <div class="card"><h3>Smart table detection</h3><p>Finds tables in pipes, tabs, CSV, aligned columns, Key: Value lines, JSON and HTML tables from web pages.</p></div>
+    <div class="card"><h3>Styled documents</h3><p>Markdown becomes a Resume or Memo styled PDF or DOCX, ready to send.</p></div>
+    <div class="card"><h3>Local first</h3><p>Parsing and exporting run on your machine. Nothing leaves it by default.</p></div>
+    <div class="card"><h3>Optional AI extraction</h3><p>Only when you click the AI button: turn messy prose into a table with a Recruiter, Sales Lead or Financial schema.</p></div>
+  </div>
+
+  <h2>Feedback</h2>
+  <p>This is an early build. Tell me what you export and what breaks:
+    <a href="https://github.com/shadow-monarch9/screenread/issues/new?template=bug_report.md">report a bug</a> or
+    <a href="https://github.com/shadow-monarch9/screenread/issues/new?template=feature_request.md">request a feature</a>.</p>
+</main>
+<footer>ContextGrab 0.1.0 · open source on <a href="https://github.com/shadow-monarch9/screenread">GitHub</a></footer>
+</body>
+</html>
