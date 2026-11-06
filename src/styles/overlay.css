@@ -1,0 +1,18 @@
+html, body { margin: 0; height: 100%; overflow: hidden; background: transparent; font: 13px "Segoe UI", sans-serif; }
+#toolbar { box-sizing: border-box; height: 100%; padding: 10px; display: flex; flex-direction: column; gap: 6px; color: #eee; background: rgba(28, 28, 36, .92); border: 1px solid rgba(255, 255, 255, .15); border-radius: 12px; }
+.head { display: flex; justify-content: space-between; gap: 8px; }
+#preview { overflow: hidden; white-space: nowrap; text-overflow: ellipsis; color: #9ab; }
+.grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+/* Recommended exporter for the detected content */
+button.rec { position: relative; border-color: #4c8dff; box-shadow: 0 0 8px rgba(76, 141, 255, .7); }
+button.rec::after { content: "Recommended"; position: absolute; top: -7px; right: 4px; padding: 0 4px; font-size: 9px; background: #4c8dff; color: #fff; border-radius: 4px; }
+button, select { padding: 6px 8px; background: rgba(255, 255, 255, .08); color: #eee; border: 1px solid rgba(255, 255, 255, .2); border-radius: 6px; cursor: pointer; text-align: left; }
+button:hover { background: #4c8dff; }
+#close { padding: 0 6px; text-align: center; }
+#status { min-height: 1em; color: #9ad; word-break: break-all; font-size: 11px; }
+#print-root { display: none; }
+@media print {
+  body { background: #fff; overflow: visible; }
+  body > :not(#print-root) { display: none !important; }
+  #print-root { display: block; }
+}

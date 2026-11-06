@@ -1,0 +1,16 @@
+/* Executive Memo / Code. Scoped to .memo. */
+.memo { font-family: Georgia, "Times New Roman", serif; font-size: 11.5pt; line-height: 1.5; color: #111; }
+.memo h1 { font-size: 18pt; text-transform: uppercase; letter-spacing: .08em; margin: 0 0 8pt; border-bottom: 1pt solid #111; }
+.memo h2, .memo h3 { font-size: 12pt; margin: 12pt 0 3pt; }
+.memo p { margin: 0 0 8pt; }
+.memo pre, .memo code { font-family: Consolas, monospace; font-size: 10pt; background: #f4f4f4; }
+.memo pre { padding: 8pt; border-left: 3pt solid #888; white-space: pre-wrap; }
+.memo table { border-collapse: collapse; width: 100%; }
+.memo th, .memo td { border-bottom: 1px solid #999; padding: 3pt 6pt; text-align: left; }
+
+/* Margin 0 + padding: Chromium only suppresses the browser header/footer when the @page margin is 0. */
+@media print {
+  @page { size: A4; margin: 0; }
+  body { -webkit-print-color-adjust: exact; print-color-adjust: exact; background-color: #ffffff; }
+  .memo { padding: 15mm; }
+}

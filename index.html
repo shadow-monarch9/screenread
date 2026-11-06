@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ContextGrab</title>
+    <script type="module" src="/src/overlay.ts"></script>
+  </head>
+  <body>
+    <div id="toolbar">
+      <div class="head"><span id="preview"></span><button id="close" aria-label="Close">✕</button></div>
+      <select id="tpl" aria-label="Template">
+        <option value="resume">Resume style</option>
+        <option value="memo">Memo style</option>
+      </select>
+      <div class="grid">
+        <button data-act="pdf">📄 PDF</button>
+        <button data-act="docx">📝 DOCX</button>
+        <button data-act="xlsx">📊 XLSX</button>
+        <button data-act="csv">📑 CSV</button>
+      </div>
+      <select id="schema" aria-label="Extraction schema">
+        <option value="recruiter">Recruiter (Name, Role, Skills, Exp)</option>
+        <option value="sales">Sales Lead (Name, Title, Company, Email)</option>
+        <option value="financial">Financial (Metric, Value, Period)</option>
+      </select>
+      <button data-act="ai">✨ Extract Entities to Excel (AI)</button>
+      <div id="status" role="status"></div>
+    </div>
+    <div id="print-root"></div>
+  </body>
+</html>
