@@ -4,7 +4,14 @@ use std::{thread::sleep, time::Duration};
 use tauri::AppHandle;
 use tauri_plugin_clipboard_manager::ClipboardExt;
 
-/// Send Ctrl+C to the focused app, return the copied text, then restore the old clipboard.
+// macOS copies with Cmd+C, and 'c' is sent as a raw keycode (8) so enigo skips the keyboard-layout
+// lookup, which asserts when called off the main thread on recent macOS.
+#[cfg(target_os = "macos")]
+const COPY: (Key, Key) = (Key::Meta, Key::Other(8));
+#[cfg(not(target_os = "macos"))]
+const COPY: (Key, Key) = (Key::Control, Key::Unicode('c'));
+
+/// Send the OS copy shortcut to the focused app, return the copied text, then restore the old clipboard.
 // shortcut: restores text only; an image/file clipboard is lost, upgrade by snapshotting raw formats.
 pub fn grab(app: &AppHandle) -> Result<String, String> {
     let cb = app.clipboard();
@@ -13,12 +20,12 @@ pub fn grab(app: &AppHandle) -> Result<String, String> {
 
     let e = |e: enigo::InputError| e.to_string();
     let mut kb = Enigo::new(&Settings::default()).map_err(|e| e.to_string())?;
-    // The hotkey's own Alt+Shift are still held; release them or the app sees Ctrl+Alt+Shift+C.
+    // The hotkey's own Alt+Shift are still held; release them or the app sees Alt+Shift+copy.
     kb.key(Key::Alt, Direction::Release).map_err(e)?;
     kb.key(Key::Shift, Direction::Release).map_err(e)?;
-    kb.key(Key::Control, Direction::Press).map_err(e)?;
-    kb.key(Key::Unicode('c'), Direction::Click).map_err(e)?;
-    kb.key(Key::Control, Direction::Release).map_err(e)?;
+    kb.key(COPY.0, Direction::Press).map_err(e)?;
+    kb.key(COPY.1, Direction::Click).map_err(e)?;
+    kb.key(COPY.0, Direction::Release).map_err(e)?;
 
     // Retry until the clipboard has text (browsers can take a while on big selections).
     let mut got = String::new();
