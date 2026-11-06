@@ -18,7 +18,17 @@ Select text anywhere → press `Alt + Shift + S` → pick a format. Local-first,
 2. Run it. The builds are unsigned, so Windows SmartScreen / macOS Gatekeeper will warn on first launch.
 3. ContextGrab starts in the background with no window. Highlight text in any app and press **`Alt + Shift + S`**.
 
-> Windows is the tested platform. macOS builds are produced by CI but have not been verified, and macOS needs Accessibility permission for ContextGrab to send the copy keystroke.
+### macOS
+
+1. Open the `.dmg` and drag **ContextGrab** to Applications.
+2. The build is unsigned, so macOS may say the app is damaged. Clear the quarantine flag once, then open it:
+   ```bash
+   xattr -dr com.apple.quarantine /Applications/ContextGrab.app
+   ```
+3. Allow ContextGrab under **System Settings → Privacy & Security → Accessibility**, so it can send the copy keystroke.
+4. The hotkey is `Option + Shift + S`.
+
+> Windows is the tested platform. The macOS build is produced by CI but has not been verified; *Save as PDF* (print dialog) may not work there yet. Please report what you find.
 
 ## How it works
 

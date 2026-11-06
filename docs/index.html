@@ -33,10 +33,16 @@
   <header>
     <h1>Select it. <kbd>Alt</kbd> + <kbd>Shift</kbd> + <kbd>S</kbd>. Export it.</h1>
     <p class="sub">ContextGrab turns whatever you highlight, from a web table, a chat answer or a spreadsheet, into a clean PDF, DOCX, XLSX or CSV. Local-first, no account.</p>
-    <a class="btn" href="https://github.com/shadow-monarch9/screenread/releases/latest">Download for Windows</a>
+    <a class="btn" href="https://github.com/shadow-monarch9/screenread/releases/latest">Download for Windows &amp; macOS</a>
     <a class="btn alt" href="https://github.com/shadow-monarch9/screenread">View on GitHub</a>
-    <p class="note">macOS builds are provided but untested. Installers are unsigned, so expect a SmartScreen / Gatekeeper warning on first run.</p>
+    <p class="note">Installers are unsigned, so expect a SmartScreen / Gatekeeper warning on first run. See Install below.</p>
   </header>
+
+  <h2>Install</h2>
+  <div class="grid">
+    <div class="card"><h3>Windows</h3><p>Download the <code>.exe</code> (or <code>.msi</code>) from the release and run it. SmartScreen may warn because the build is unsigned: choose <em>More info → Run anyway</em>. Hotkey: <kbd>Alt</kbd> + <kbd>Shift</kbd> + <kbd>S</kbd>.</p></div>
+    <div class="card"><h3>macOS</h3><p>Download the <code>.dmg</code> and drag the app to Applications. Run <code>xattr -dr com.apple.quarantine /Applications/ContextGrab.app</code> once, then allow it under <em>System Settings → Privacy &amp; Security → Accessibility</em>. Hotkey: <kbd>Option</kbd> + <kbd>Shift</kbd> + <kbd>S</kbd>. Untested: <em>Save as PDF</em> may not work yet.</p></div>
+  </div>
 
   <h2>How it works</h2>
   <ol>
