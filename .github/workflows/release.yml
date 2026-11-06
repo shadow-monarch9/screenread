@@ -46,6 +46,6 @@ jobs:
           tagName: ${{ github.ref_name }}
           releaseName: "ContextGrab ${{ github.ref_name }}"
           releaseBody: "Download the installer for your OS below. Unsigned build: Windows SmartScreen / macOS Gatekeeper will warn on first run."
-          releaseDraft: true
+          releaseDraft: false
           prerelease: false
           args: ${{ matrix.args }}

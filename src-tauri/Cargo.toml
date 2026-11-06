@@ -1,6 +1,6 @@
 [package]
 name = "smart-exporter"
-version = "0.1.2"
+version = "0.1.3"
 description = "Screen region to PDF/DOCX/CSV/XLSX"
 authors = ["you"]
 edition = "2024"
